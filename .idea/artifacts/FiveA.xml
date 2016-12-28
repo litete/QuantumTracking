@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="FiveA" />
+          <element id="module-output" name="QuantumTracking" />
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jstl-1.2.jar" />
@@ -52,7 +52,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="FiveA/web/Web" />
+      <element id="javaee-facet-resources" facet="QuantumTracking/web/Web" />
     </root>
   </artifact>
 </component>
