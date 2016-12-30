@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,11 +8,12 @@ import java.util.Date;
 public class StringToData {
     public static void stringToData(){
         String d = "2008-10-13 15:20:25";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyymmdd");
         try {
-            System.out.println(sdf.parse(d));
-            System.out.println("1111");
-        } catch (Exception e) {
+            Date date = sdf.parse("20080808");
+            System.out.println(date+" sssas");
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
     public  static void main(String[] args){
