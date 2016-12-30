@@ -1,21 +1,23 @@
 package app.home.model;
 
 /**
- * Created by lite on 2016/12/29.
+ * Created by Administrator on 2016/12/30.
  */
-public class FewTJdShopIndex {
+public class LittleTjdShopIndex {
     private String product_brand;
     private String device_type;
     private double focus_index;
     private double purchase_index;
+    private String date_id;
 
     @Override
     public String toString() {
-        return "FewTJdShopIndex{" +
+        return "LittleTjdShopIndex{" +
                 "product_brand='" + product_brand + '\'' +
                 ", device_type='" + device_type + '\'' +
                 ", focus_index=" + focus_index +
                 ", purchase_index=" + purchase_index +
+                ", date_id='" + date_id + '\'' +
                 '}';
     }
 
@@ -49,5 +51,13 @@ public class FewTJdShopIndex {
 
     public void setPurchase_index(double purchase_index) {
         this.purchase_index = purchase_index;
+    }
+
+    public String getDate_id() {
+        return date_id;
+    }
+
+    public void setDate_id(String date_id) {
+        this.date_id = date_id;
     }
 }

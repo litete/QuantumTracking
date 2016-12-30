@@ -1,6 +1,7 @@
 package app.home.controller;
 
 import app.home.model.FewTJdShopIndex;
+import app.home.model.LittleTjdShopIndex;
 import app.home.model.TJdShopIndex;
 import app.home.model.TJdShopIndex1;
 import app.home.service.ShopIndexService;
@@ -32,24 +33,19 @@ private ShopIndexService thisService;
 
     @RequestMapping("/selectIndex")
     @ResponseBody
-    public  void selectIndexByCondition(String selectIndexJson){
+    public  void selectIndexByCondition(String data){
+        System.out.println("data:"+data);
         TJdShopIndex tJdShopIndex=new TJdShopIndex();
-        TJdShopIndex1 tJdShopIndex1=new TJdShopIndex1();
         ObjectMapper obj=new ObjectMapper();
         try {
-            tJdShopIndex=obj.readValue(selectIndexJson,TJdShopIndex.class);
-            tJdShopIndex1=obj.readValue(selectIndexJson,TJdShopIndex1.class);
+            tJdShopIndex=obj.readValue(data,TJdShopIndex.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        List<FewTJdShopIndex> fewTJdShopIndex = thisService.selectFocusIndex();
-        String fewTJdShopIndexJson = null;
-        HashMap<String,List> hashMap=new HashMap<String, List>();
-        try {
-            fewTJdShopIndexJson =obj.writeValueAsString(hashMap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(fewTJdShopIndexJson);
+        System.out.println("tJdShopIndex"+tJdShopIndex);
+        List<FewTJdShopIndex> fewTJdShopIndexBar = thisService.selectFocusIndex( tJdShopIndex);
+        List<LittleTjdShopIndex> littleTjdShopIndexeLine=thisService.selectFocusIndexAddDateId(tJdShopIndex);
+
+
     }
 }

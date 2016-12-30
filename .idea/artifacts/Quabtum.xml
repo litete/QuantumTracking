@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Quabtum">
+    <output-path>$PROJECT_DIR$/out/artifacts/Quabtum</output-path>
+    <root id="root" />
+  </artifact>
+</component>

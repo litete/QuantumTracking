@@ -2,6 +2,7 @@ package app.home.dao;
 
 
 import app.home.model.FewTJdShopIndex;
+import app.home.model.LittleTjdShopIndex;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ import java.util.List;
 
 public interface ShopIndexMapper {
     List<FewTJdShopIndex> selectFocusIndex();
+    List<LittleTjdShopIndex> selectFocusIndexAddDateId();
+
 }

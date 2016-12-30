@@ -52,7 +52,7 @@ var datasend2 = {
 							};
 							 
 					console.log(JSON.stringify(datasend2))
-					$.post("http://localhost:8080/quantun/shopIndex/selectIndex.do",{selectIndexJson:JSON.stringify(datasend2)},function(data){
+					$.post("http://localhost:8080/quantum/shopIndex/selectIndex.do",{selectIndexJson:JSON.stringify(datasend2)},function(data){
 						console.log("return data:"+data);
 					})
 					

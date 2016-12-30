@@ -2,6 +2,7 @@ package app.home.service.impl;
 
 import app.home.dao.ShopIndexMapper;
 import app.home.model.FewTJdShopIndex;
+import app.home.model.LittleTjdShopIndex;
 import app.home.model.TJdShopIndex;
 import app.home.model.TJdShopIndex1;
 import app.home.service.ShopIndexService;
@@ -26,8 +27,13 @@ public class ShopIndexServiceImpl implements ShopIndexService{
     }
 
     @Override
-    public List<FewTJdShopIndex> selectFocusIndex() {
+    public List<FewTJdShopIndex> selectFocusIndex(TJdShopIndex tJdShopIndex) {
         return thisMapper.selectFocusIndex();
+    }
+
+    @Override
+    public List<LittleTjdShopIndex> selectFocusIndexAddDateId(TJdShopIndex tJdShopIndex) {
+        return thisMapper.selectFocusIndexAddDateId();
     }
 
 
