@@ -178,12 +178,6 @@
 
 <script src="src/js/echarts.min.js"></script>
 
-<!--<script src="src/js/esl.js"></script>-->
-<script src="src/js/section1.js"></script>
-
-<script src="src/js/section2.js"></script>
-<script src="src/js/section3.js"></script>
-
 <script>
     var brandAnalysis = document.getElementById('brandAnalysis');
     var competitorAnalysis = document.getElementById('competitorAnalysis');
@@ -192,59 +186,54 @@
     var competitorBtn = document.getElementById('competitor');
     var saleBtn = document.getElementById('sale');
     var req = {
-
            first_catalog : '手机',
            second_catalog : '手机通讯',
            third_catalog : '对讲机'
-
     };
-    $(function () {
+    var focus = "";
+    var bar;
+    var line;
+    var bar_brand = [];
+    var bar_mobile = [];
+    var bar_pc = [];
+    
         $(brandBtn).addClass('active');
         $(brandAnalysis).show();
         $(competitorAnalysis).hide();
         $(saleAnalysis).hide();
 
-        $.post("../shopIndex/selectIndex.do",
-            {data:JSON.stringify(req)},
-            function(req){
-            console.log("return req:"+req);
-        })
-//        $.ajax({
-//            type : 'post',
-//            url : xxx,
-//            data : JSON.stringify(req),
-//            success : function(res) {
-//                console.log(res);
-//            }
-//        })
-    });
-
-    $(brandBtn).click(function () {
-        $(brandBtn).addClass('active');
-        $(brandAnalysis).show();
-        $(competitorAnalysis).hide();
-        $(saleAnalysis).hide();
-        $(competitorBtn).removeClass('active');
-        $(saleBtn).removeClass('active');
-    });
-    $(competitorBtn).click(function () {
-        $(competitorBtn).addClass('active');
-        $(brandAnalysis).hide();
-        $(competitorAnalysis).show();
-        $(saleAnalysis).hide();
-        $(brandBtn).removeClass('active');
-        $(saleBtn).removeClass('active');
-    });
-    $(saleBtn).click(function () {
-        $(saleBtn).addClass('active');
-        $(brandAnalysis).hide();
-        $(competitorAnalysis).hide();
-        $(saleAnalysis).show();
-        $(brandBtn).removeClass('active');
-        $(competitorBtn).removeClass('active');
-    });
+        $.post(
+            "../shopIndex/selectIndex.do",
+            {
+                data:JSON.stringify(req),
+                async: false
+            },
+                function(res){
+                    res = JSON.parse(res);
+                    console.log(res);
+                    res = JSON.parse(res);
+                    focus = res.focus_index;
+                    bar = focus.bar;
+                    for(var i=0; i<bar.length; i++){
+                        bar_brand.push(bar[i].product_brand);
+                    }
+                    for(i=0; i<bar.length; i++){
+                        bar_mobile.push(bar[i].mobile);
+                    }
+                    for(i=0; i<bar.length; i++){
+                        bar_pc.push(bar[i].pc);
+                    }
+             }
+            );      
 
 </script>
+
+
+<script src="src/js/section1.js"></script>
+
+<script src="src/js/section2.js"></script>
+<script src="src/js/section3.js"></script>
+
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="quantum">
-    <output-path>$PROJECT_DIR$/out/artifacts/quantum</output-path>
-    <root id="archive" name="unnamed.war">
+  <artifact type="war" name="quantuma">
+    <output-path>$PROJECT_DIR$/out/artifacts/quantuma</output-path>
+    <root id="archive" name="quantuma.war">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="FiveA" />

@@ -4,7 +4,6 @@ import app.home.dao.ShopIndexMapper;
 import app.home.model.FewTJdShopIndex;
 import app.home.model.LittleTjdShopIndex;
 import app.home.model.TJdShopIndex;
-import app.home.model.TJdShopIndex1;
 import app.home.service.ShopIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class ShopIndexServiceImpl implements ShopIndexService{
 
     @Override
     public List<FewTJdShopIndex> selectFocusIndex(TJdShopIndex tJdShopIndex) {
-        return thisMapper.selectFocusIndex();
+        return thisMapper.selectFocusIndex(tJdShopIndex);
     }
 
     @Override

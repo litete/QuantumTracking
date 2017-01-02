@@ -18,17 +18,15 @@
         <result column="product_brand" property="product_brand" jdbcType="VARCHAR"/>
         <result column="device_type" property="device_type" jdbcType="VARCHAR"/>
         <result column="focus_index" property="focus_index" jdbcType="DOUBLE"/>
-        <result column="purchase_index" property="purchase_index" jdbcType="DOUBLE"/>
     </resultMap>
     <!--根据传入的多个参数，返回要给前端的数据-->
     <select id="selectFocusIndex" parameterType="app.home.model.TJdShopIndex"
             resultMap="FewTJdShopIndexResultMap">
  SELECT product_brand, device_type,focus_index FROM t_jd_shopindex WHERE
-	first_catalog = #{first_catalog,jdbcType=VARCHAR}
-AND second_catalog = #{second_catalog,jdbcType=VARCHAR}
-AND third_catalog = #{third_catalog,jdbcType=VARCHAR}
+	first_catalog =#{first_catalog,jdbcType=VARCHAR}
+AND second_catalog =#{second_catalog,jdbcType=VARCHAR}
+AND third_catalog =#{third_catalog,jdbcType=VARCHAR}
 AND date_id='20161111'
-;
     </select>
     <select id="selectFocusIndexAddDateId" parameterType="app.home.model.TJdShopIndex"
             resultType="app.home.model.LittleTjdShopIndex">

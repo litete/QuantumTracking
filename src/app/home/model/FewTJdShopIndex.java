@@ -7,17 +7,6 @@ public class FewTJdShopIndex {
     private String product_brand;
     private String device_type;
     private double focus_index;
-    private double purchase_index;
-
-    @Override
-    public String toString() {
-        return "FewTJdShopIndex{" +
-                "product_brand='" + product_brand + '\'' +
-                ", device_type='" + device_type + '\'' +
-                ", focus_index=" + focus_index +
-                ", purchase_index=" + purchase_index +
-                '}';
-    }
 
     public String getProduct_brand() {
         return product_brand;
@@ -43,11 +32,4 @@ public class FewTJdShopIndex {
         this.focus_index = focus_index;
     }
 
-    public double getPurchase_index() {
-        return purchase_index;
-    }
-
-    public void setPurchase_index(double purchase_index) {
-        this.purchase_index = purchase_index;
-    }
 }
