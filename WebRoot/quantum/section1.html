@@ -177,7 +177,6 @@
 <script src="src/js/echarts.js"></script>
 
 <script src="src/js/echarts.min.js"></script>
-
 <script>
     var brandAnalysis = document.getElementById('brandAnalysis');
     var competitorAnalysis = document.getElementById('competitorAnalysis');
@@ -185,46 +184,63 @@
     var brandBtn = document.getElementById('brand');
     var competitorBtn = document.getElementById('competitor');
     var saleBtn = document.getElementById('sale');
+    $(function () {
+        $(brandBtn).addClass('active');
+        $(brandAnalysis).show();
+        $(competitorAnalysis).hide();
+        $(saleAnalysis).hide();
+    });
+
+    $(brandBtn).click(function () {
+        $(brandBtn).addClass('active');
+        $(brandAnalysis).show();
+        $(competitorAnalysis).hide();
+        $(saleAnalysis).hide();
+        $(competitorBtn).removeClass('active');
+        $(saleBtn).removeClass('active');
+    });
+    $(competitorBtn).click(function () {
+        $(competitorBtn).addClass('active');
+        $(brandAnalysis).hide();
+        $(competitorAnalysis).show();
+        $(saleAnalysis).hide();
+        $(brandBtn).removeClass('active');
+        $(saleBtn).removeClass('active');
+    });
+    $(saleBtn).click(function () {
+        $(saleBtn).addClass('active');
+        $(brandAnalysis).hide();
+        $(competitorAnalysis).hide();
+        $(saleAnalysis).show();
+        $(brandBtn).removeClass('active');
+        $(competitorBtn).removeClass('active');
+    });
+
+</script>
+
+<script>
+
     var req = {
            first_catalog : '手机',
            second_catalog : '手机通讯',
            third_catalog : '对讲机'
     };
-    var focus = "";
-    var bar;
-    var line;
-    var bar_brand = [];
-    var bar_mobile = [];
-    var bar_pc = [];
     
-        $(brandBtn).addClass('active');
-        $(brandAnalysis).show();
-        $(competitorAnalysis).hide();
-        $(saleAnalysis).hide();
+    // var bar_brand = [];
+    // var bar_mobile = [];
+    // var bar_pc = [];
 
-        $.post(
-            "../shopIndex/selectIndex.do",
-            {
-                data:JSON.stringify(req),
-                async: false
-            },
-                function(res){
-                    res = JSON.parse(res);
-                    console.log(res);
-                    res = JSON.parse(res);
-                    focus = res.focus_index;
-                    bar = focus.bar;
-                    for(var i=0; i<bar.length; i++){
-                        bar_brand.push(bar[i].product_brand);
-                    }
-                    for(i=0; i<bar.length; i++){
-                        bar_mobile.push(bar[i].mobile);
-                    }
-                    for(i=0; i<bar.length; i++){
-                        bar_pc.push(bar[i].pc);
-                    }
-             }
-            );      
+    // var line = [];
+    // var line_pc = [];
+    // var line_mobile = [];
+    // var line_average = [];
+    // var line_date = [];
+
+       
+        var focus = "";
+        var bar;
+        var line;
+  
 
 </script>
 
