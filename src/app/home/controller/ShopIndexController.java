@@ -89,14 +89,6 @@ public class ShopIndexController extends BaseController {
 
             json = obj.writeValueAsString(hashMap);
             System.out.println("json为" + json);
-            //       StringBuffer buffer=new StringBuffer();
-//            for (int i = 0; i <buffer.length() ; i++) {
-//                char c = buffer.charAt(i);
-//                switch (c){
-//                    case "\":
-//                        break;
-//
-//            }}
         } catch (IOException e) {
             e.printStackTrace();
         }
