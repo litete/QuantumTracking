@@ -17,6 +17,8 @@
 // console.log(line_date);
 
 // console.log(isNaN("0"));
+var barTotal = [];
+var lineTotal = [];
 $.post(
     "../shopIndex/selectIndex.do", {
         data: JSON.stringify(req),
@@ -31,6 +33,14 @@ $.post(
         focus = res.focus_index;
         bar = focus.bar;
         line = focus.line;
+
+        for (var i = 0; i < bar.pc.length; i++) {
+          barTotal[i] = bar.pc[i] + bar.mobile[i];
+        }
+
+        for (var i = 0; i < line.pc.length; i++) {
+          lineTotal[i] = line.pc[i] + line.mobile[i];
+        }
         // console.log(bar);
         // console.log(line);
         // for(var i=0; i<bar.length; i++){
@@ -88,11 +98,12 @@ $.post(
                 data: bar.brand
                     // data : a
             },
-            series: [{
-                name: 'PC端',
+            series: [
+              {
+                name: '关注指数',
                 type: 'bar',
                 // data: [98, 98, 98],
-                data: bar.pc,
+                data: barTotal,
                 itemStyle: {
                     normal: {
                         color: 'rgb(122,197,167)'
@@ -105,24 +116,43 @@ $.post(
                         // formatter: '{c} %'
                     }
                 }
-            }, {
-                name: '移动端',
-                type: 'bar',
-                // data: [275, 137.5, 275],
-                data: bar.mobile,
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(227,168,160)'
-                    }
-                },
-                label: {
-                    normal: {
-                        show: true,
-                        position: 'right',
-                        // formatter: '{c} %'
-                    }
-                }
-            }, ]
+              }
+            //   {
+            //     name: 'PC端',
+            //     type: 'bar',
+            //     // data: [98, 98, 98],
+            //     data: bar.pc,
+            //     itemStyle: {
+            //         normal: {
+            //             color: 'rgb(122,197,167)'
+            //         }
+            //     },
+            //     label: {
+            //         normal: {
+            //             show: true,
+            //             position: 'right',
+            //             // formatter: '{c} %'
+            //         }
+            //     }
+            //   }, {
+            //     name: '移动端',
+            //     type: 'bar',
+            //     // data: [275, 137.5, 275],
+            //     data: bar.mobile,
+            //     itemStyle: {
+            //         normal: {
+            //             color: 'rgb(227,168,160)'
+            //         }
+            //     },
+            //     label: {
+            //         normal: {
+            //             show: true,
+            //             position: 'right',
+            //             // formatter: '{c} %'
+            //         }
+            //     }
+            // }
+           ]
         };
 
         // 使用刚指定的配置项和数据显示图表。
@@ -153,48 +183,63 @@ $.post(
                 type: 'value',
                 name: '关注指数',
             }],
-            series: [{
-                name: 'PC端',
+            series: [
+              {
+                name: '关注指数',
                 type: 'line',
                 stack: '总量',
                 areaStyle: { normal: {} },
                 itemStyle: {
                     normal: {
-                        color: 'rgb(122,197,167)'
+                       color: 'yellow'
                     }
                 },
-                data: line.pc
+                data: line.average
                     // data:[320, 332, 301, 334, 390, 330, 320,322,765,452,120,123,198,256,450,320, 332, 301, 334, 390, 330, 320,322,765,452,120,123,198,256,450]
-            }, {
-                name: '移动端',
-                type: 'line',
-                stack: '总量',
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(227,168,160)'
-                    }
-                },
-
-                // label: {
-                //     normal: {
-                //         show: true,
-                //         position: 'top'
-                //     }
-                // },
-                areaStyle: { normal: {} },
-                // data:[820, 932, 901, 934, 1290, 1330, 1320,320, 332, 301, 334,432,120,356,723,820, 932, 901, 934, 1290, 1330, 1320,320, 332, 301, 334,432,120,356,723]
-                data: line.mobile
-            }, {
-                name: '平均值',
-                type: 'line',
-                // data:[400, 500, 408, 655, 700, 500, 600,126,342,500,200,342,376,854,109,400, 500, 408, 655, 700, 500, 600,126,342,500,200,342,376,854,109],
-                data: line.average,
-                itemStyle: {
-                    normal: {
-                        color: 'yellow'
-                    }
-                },
-            }]
+               }
+            //   {
+            //     name: 'PC端',
+            //     type: 'line',
+            //     stack: '总量',
+            //     areaStyle: { normal: {} },
+            //     itemStyle: {
+            //         normal: {
+            //             color: 'rgb(122,197,167)'
+            //         }
+            //     },
+            //     data: line.pc
+            //         // data:[320, 332, 301, 334, 390, 330, 320,322,765,452,120,123,198,256,450,320, 332, 301, 334, 390, 330, 320,322,765,452,120,123,198,256,450]
+            //    }, {
+            //     name: '移动端',
+            //     type: 'line',
+            //     stack: '总量',
+            //     itemStyle: {
+            //         normal: {
+            //             color: 'rgb(227,168,160)'
+            //         }
+            //     },
+            //
+            //     // label: {
+            //     //     normal: {
+            //     //         show: true,
+            //     //         position: 'top'
+            //     //     }
+            //     // },
+            //     areaStyle: { normal: {} },
+            //     // data:[820, 932, 901, 934, 1290, 1330, 1320,320, 332, 301, 334,432,120,356,723,820, 932, 901, 934, 1290, 1330, 1320,320, 332, 301, 334,432,120,356,723]
+            //     data: line.mobile
+            // }, {
+            //     name: '平均值',
+            //     type: 'line',
+            //     // data:[400, 500, 408, 655, 700, 500, 600,126,342,500,200,342,376,854,109,400, 500, 408, 655, 700, 500, 600,126,342,500,200,342,376,854,109],
+            //     data: line.average,
+            //     itemStyle: {
+            //         normal: {
+            //             color: 'yellow'
+            //         }
+            //     },
+            // }
+          ]
         };
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);

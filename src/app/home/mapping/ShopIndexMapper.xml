@@ -31,10 +31,10 @@ AND date_id='20161111'
     <select id="selectFocusIndexAddDateId" parameterType="app.home.model.TJdShopIndex"
             resultType="app.home.model.LittleTjdShopIndex">
          SELECT product_brand, device_type,focus_index,date_id FROM t_jd_shopindex WHERE
-	first_catalog ='手机'
-AND second_catalog ='手机通讯'
-AND third_catalog ='对讲机'
-AND product_brand='SMP'
+	first_catalog ='个护化妆'
+AND second_catalog ='口腔护理'
+AND third_catalog ='漱口水'
+AND product_brand='三金'
 AND date_id BETWEEN '20161110' AND '20161210'
     </select>
 </mapper>
