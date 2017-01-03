@@ -13,31 +13,7 @@ public class TJdShopIndex {
     private String device_type;
     private double pv;
     private double focus_index;
-    private double purchase_index;
 
-    @Override
-    public String toString() {
-        return "TJdShopIndex{" +
-                "first_catalog='" + first_catalog + '\'' +
-                ", second_catalog='" + second_catalog + '\'' +
-                ", third_catalog='" + third_catalog + '\'' +
-                ", product_brand='" + product_brand + '\'' +
-                ", goods_num=" + goods_num +
-                ", date_id='" + date_id + '\'' +
-                ", device_type='" + device_type + '\'' +
-                ", pv=" + pv +
-                ", focus_index=" + focus_index +
-                ", purchase_index=" + purchase_index +
-                '}';
-    }
-
-    public double getPurchase_index() {
-        return purchase_index;
-    }
-
-    public void setPurchase_index(double purchase_index) {
-        this.purchase_index = purchase_index;
-    }
 
     public String getFirst_catalog() {
         return first_catalog;

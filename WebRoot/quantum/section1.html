@@ -11,6 +11,7 @@
             justify-content: space-between;
             margin-bottom: 20px;
         }
+
         .sectionNav * {
             background-color: #888888;
             width: 33%;
@@ -19,14 +20,17 @@
             vertical-align: middle;
             color: white;
         }
+
         .active {
-            background-color: rgb(33,141,199);
+            background-color: rgb(33, 141, 199);
         }
+
         .section {
             height: 500px;
-            background-color: rgb(242,243,243);
+            background-color: rgb(242, 243, 243);
         }
-        .textCenter{
+
+        .textCenter {
             /*display: inline-block;*/
             height: 50px;
             float: left;
@@ -44,7 +48,11 @@
             <img src="./src/logo.png"></a>
         </div>
         <div align="center" style="color: #FFFFFF; font-size: 20px; padding-top: 27px">
-            <div class="moNav"><img id="imgAutoTaskTip" src="src/img/Message_tiny.gif"><a target="report" href="Pages/Self.aspx" pid="1" id="aSelf" class="selA" onclick="setLeftMenuFocus(this);">用户中心</a><a href="#" id="aLogout" class="selA">退出</a></div>
+            <div class="moNav"><img id="imgAutoTaskTip" src="src/img/Message_tiny.gif"><a target="report"
+                                                                                          href="Pages/Self.aspx" pid="1"
+                                                                                          id="aSelf" class="selA"
+                                                                                          onclick="setLeftMenuFocus(this);">用户中心</a><a
+                    href="#" id="aLogout" class="selA">退出</a></div>
         </div>
     </div>
     <div style="width: 100%;height: 100px;display: flex;align-items: flex-end;margin-bottom: 20px;font-size: larger">
@@ -59,6 +67,7 @@
         <div>
             <h4 style="display: inline-block">1.关注指数</h4>
             <img src="src/img/tooltip.png" alt="">
+
             <div class="section">
                 <div class="section col-md-6">
                     <div id="graph1" style="width: 100%;height:100%;"></div>
@@ -70,6 +79,7 @@
         </div>
         <div style="margin-top: 20px;">
             <h4>2.购买指数</h4>
+
             <div class="section">
                 <div class="col-md-6 section">
                     <div id="graph3" style="width: 100%;height:100%;"></div>
@@ -81,6 +91,7 @@
         </div>
         <div style="margin-top: 20px;">
             <h4>3.口碑指数</h4>
+
             <div class="section">
                 <div class="col-md-6 section">
                     <div id="graph5" style="width: 100%;height:100%;"></div>
@@ -92,8 +103,9 @@
         </div>
     </div>
     <div id="competitorAnalysis">
-        <div >
+        <div>
             <h4>1.所有品牌重合度</h4>
+
             <div>
                 <div class="section">
                     <div id="graph7" style="width: 100%;height:100%;"></div>
@@ -103,39 +115,41 @@
         </div>
         <div style="margin-top: 20px;">
             <h4>2.两两品牌重合度</h4>
+
             <div style="height: 400px;margin-top: 30px;">
-                    <div class="form-group form-inline" id="graph8" style="text-align: center;">
-                        <select name="" class="form-control" style="display: inline-block;width: 30%">
-                            <option value="">品牌A</option>
-                        </select>
-                        <span>与</span>
-                        <select name="" class="form-control" style="display: inline-block;width: 30%">
-                            <option value="">品牌B</option>
-                        </select>
-                        <span>的重合</span>
-                        <button class="btn btn-primary" style="margin-left: 20px;">查询</button>
-                    </div>
-                    <div style="margin: 30px auto;overflow: hidden;width: 73%">
-                        <div class="textCenter" style="width:30%;background-color:#e9b09a;">品牌A独有15%</div>
-                        <div class="textCenter" style="width: 20%;background-color:#cb6b47">品牌AB重合率61%</div>
-                        <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
-                    </div>
-                    <div style="margin: 30px auto;overflow: hidden;width: 73%">
-                        <div class="textCenter" style="width: 30%;;background-color:#e9b09a;">品牌A独有15%</div>
-                        <div class="textCenter" style="width: 20%;background-color:#cb6b47;">品牌AB重合率61%</div>
-                        <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
-                    </div>
-                    <div style="margin: 30px auto;overflow: hidden;width: 73%">
-                        <div class="textCenter" style="width: 30%;background-color:#e9b09a;">品牌A独有15%</div>
-                        <div class="textCenter" style="width: 20%;background-color:#cb6b47;">品牌AB重合率61%</div>
-                        <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
-                    </div>
+                <div class="form-group form-inline" id="graph8" style="text-align: center;">
+                    <select name="" class="form-control" style="display: inline-block;width: 30%">
+                        <option value="">品牌A</option>
+                    </select>
+                    <span>与</span>
+                    <select name="" class="form-control" style="display: inline-block;width: 30%">
+                        <option value="">品牌B</option>
+                    </select>
+                    <span>的重合</span>
+                    <button class="btn btn-primary" style="margin-left: 20px;">查询</button>
+                </div>
+                <div style="margin: 30px auto;overflow: hidden;width: 73%">
+                    <div class="textCenter" style="width:30%;background-color:#e9b09a;">品牌A独有15%</div>
+                    <div class="textCenter" style="width: 20%;background-color:#cb6b47">品牌AB重合率61%</div>
+                    <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
+                </div>
+                <div style="margin: 30px auto;overflow: hidden;width: 73%">
+                    <div class="textCenter" style="width: 30%;;background-color:#e9b09a;">品牌A独有15%</div>
+                    <div class="textCenter" style="width: 20%;background-color:#cb6b47;">品牌AB重合率61%</div>
+                    <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
+                </div>
+                <div style="margin: 30px auto;overflow: hidden;width: 73%">
+                    <div class="textCenter" style="width: 30%;background-color:#e9b09a;">品牌A独有15%</div>
+                    <div class="textCenter" style="width: 20%;background-color:#cb6b47;">品牌AB重合率61%</div>
+                    <div class="textCenter" style="width: 50%;background-color:#8ac3a9;">品牌B24%</div>
+                </div>
             </div>
         </div>
     </div>
     <div id="saleAnalysis">
         <div>
             <h4>1.关注指数</h4>
+
             <div>
                 <div class="section">
                     <div id="graph9" style="width: 100%;height:100%;"></div>
@@ -145,6 +159,7 @@
         </div>
         <div style="margin-top: 20px;">
             <h4>2.购买指数</h4>
+
             <div>
                 <div class="section">
                     <div id="graph10" style="width: 100%;height:100%;"></div>
@@ -153,6 +168,7 @@
         </div>
         <div style="margin-top: 20px;">
             <h4>3.口碑指数</h4>
+
             <div>
                 <div class="section">
                     <div id="graph11" style="width: 100%;height:100%;"></div>
@@ -165,10 +181,6 @@
 
     </div>
 </div>
-
-
-
-
 
 
 <script src="src/js/jquery-3.1.1.min.js"></script>
@@ -221,10 +233,10 @@
 <script>
 
     var req = {
-           first_catalog : '个护化妆',
-           second_catalog : '口腔护理',
-           third_catalog : '漱口水',
-           brand : '上海'
+        first_catalog: '个护化妆',
+        second_catalog: '口腔护理',
+        third_catalog: '漱口水',
+        product_brand: '上海'
     };
 
     // var bar_brand = [];
@@ -238,9 +250,9 @@
     // var line_date = [];
 
 
-        var focus = "";
-        var bar;
-        var line;
+    var focus = "";
+    var bar;
+    var line;
 
 
 </script>

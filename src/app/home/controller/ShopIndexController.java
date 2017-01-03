@@ -57,15 +57,35 @@ public class ShopIndexController extends BaseController {
             System.out.println("fewTJdShopIndex是：" + fewTJdShopIndex.getDevice_type() + "+" + fewTJdShopIndex.getProduct_brand() +
                     "+" + fewTJdShopIndex.getFocus_index());
         }
+
+        for (int i = 0; i < fewTJdShopIndexBar.size(); i++) {
+            FewTJdShopIndex fewTJdShopIndex = fewTJdShopIndexBar.get(i);
+            System.out.println("fewTJdShopIndex是：" + fewTJdShopIndex.getDevice_type() + "+" + fewTJdShopIndex.getProduct_brand() +
+                    "+" + fewTJdShopIndex.getFocus_index());
+        }
         //将bar处理成要返回的初级格式
         List<ResultTJdBar> resultTJdBarsList = processResultTJdBar(fewTJdShopIndexBar);
+        //将bar排序也就是将fewTJdShopIndexBar排序
+        Collections.sort(resultTJdBarsList, new Comparator<ResultTJdBar>() {
+            @Override
+            public int compare(ResultTJdBar o1, ResultTJdBar o2) {
+                if ((o1.getMobile()+o1.getPC())==(o2.getMobile()+o2.getPC())){
+                    return 0;
+                }else if((o1.getMobile()+o1.getPC())>(o2.getMobile()+o2.getPC())){
+                    return 1;
+                }else {
+                    return -1;
+                }
+
+            }
+
+        });
         for (int i = 0; i < resultTJdBarsList.size(); i++) {
             ResultTJdBar res = resultTJdBarsList.get(i);
             System.out.println("bar要返回的格式为：" + res.getProduct_brand() + "+" + res.getMobile() + "+" + res.getPC());
         }
         //查询line
         List<LittleTjdShopIndex> littleTjdShopIndexeLine = thisService.selectFocusIndexAddDateId(tJdShopIndex);
-
         //处理littleTjdShopIndexeLine，将没有值的指数复制为150.00
         List<LittleTjdShopIndex> littleIndexlist = doLittleTjdShopIndex(littleTjdShopIndexeLine, s);
         System.out.println("天数：" + littleIndexlist.size());

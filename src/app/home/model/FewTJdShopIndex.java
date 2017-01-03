@@ -31,5 +31,4 @@ public class FewTJdShopIndex {
     public void setFocus_index(double focus_index) {
         this.focus_index = focus_index;
     }
-
 }
