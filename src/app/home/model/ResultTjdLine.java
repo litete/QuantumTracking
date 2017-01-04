@@ -1,5 +1,7 @@
 package app.home.model;
 
+import java.sql.Date;
+
 /**
  * Created by lite on 2017/1/1.
  */
@@ -7,7 +9,7 @@ public class ResultTjdLine {
     private String product_brand;
     private double PC;
     private double mobile;
-    private String date_id;
+    private Date date;
     private double average;
 
     public String getProduct_brand() {
@@ -34,12 +36,12 @@ public class ResultTjdLine {
         this.mobile = mobile;
     }
 
-    public String getDate_id() {
-        return date_id;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDate_id(String date_id) {
-        this.date_id = date_id;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public double getAverage() {

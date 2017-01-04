@@ -1,13 +1,12 @@
 package app.home.service.impl;
 
 import app.home.dao.ShopIndexMapper;
-import app.home.model.FewTJdShopIndex;
-import app.home.model.LittleTjdShopIndex;
-import app.home.model.TJdShopIndex;
+import app.home.model.*;
 import app.home.service.ShopIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,13 +25,13 @@ public class ShopIndexServiceImpl implements ShopIndexService{
     }
 
     @Override
-    public List<FewTJdShopIndex> selectFocusIndex(TJdShopIndex tJdShopIndex) {
-        return thisMapper.selectFocusIndex(tJdShopIndex);
+    public List<BrandIndex> selectFocusIndex(AcceptJson acceptJson) {
+        return thisMapper.selectFocusIndex(acceptJson);
     }
 
     @Override
-    public List<LittleTjdShopIndex> selectFocusIndexAddDateId(TJdShopIndex tJdShopIndex) {
-        return thisMapper.selectFocusIndexAddDateId();
+    public List<LittleTjdShopIndex> selectFocusIndexAddDateId(AcceptJsonSelect acceptJsonSelect) {
+        return thisMapper.selectFocusIndexAddDateId(acceptJsonSelect);
     }
 
 

@@ -1,10 +1,9 @@
 package app.home.dao;
 
 
-import app.home.model.FewTJdShopIndex;
-import app.home.model.LittleTjdShopIndex;
-import app.home.model.TJdShopIndex;
+import app.home.model.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
  */
 
 public interface ShopIndexMapper {
-    List<FewTJdShopIndex> selectFocusIndex(TJdShopIndex tJdShopIndex);
-    List<LittleTjdShopIndex> selectFocusIndexAddDateId();
+    List<BrandIndex> selectFocusIndex(AcceptJson acceptJson);
+    List<LittleTjdShopIndex> selectFocusIndexAddDateId(AcceptJsonSelect acceptJsonSelect);
 
 }

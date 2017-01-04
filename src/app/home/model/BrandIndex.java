@@ -3,29 +3,16 @@ package app.home.model;
 import java.sql.Date;
 
 /**
- * Created by Administrator on 2016/12/30.
+ * Created by Administrator on 2017/1/4.
  */
-public class LittleTjdShopIndex {
-   private int brand_id;
+public class BrandIndex {
+    private int brand_id;
     private String brand_name;
     private double focus_index;
     private double purchase_index;
     private double polularity_index;
     private int device_type;
     private Date date;
-
-    @Override
-    public String toString() {
-        return "LittleTjdShopIndex{" +
-                "brand_id=" + brand_id +
-                ", brand_name='" + brand_name + '\'' +
-                ", focus_index=" + focus_index +
-                ", purchase_index=" + purchase_index +
-                ", polularity_index=" + polularity_index +
-                ", device_type=" + device_type +
-                ", date=" + date +
-                '}';
-    }
 
     public int getBrand_id() {
         return brand_id;

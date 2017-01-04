@@ -20,21 +20,48 @@
         <result column="focus_index" property="focus_index" jdbcType="DOUBLE"/>
     </resultMap>
     <!--根据传入的多个参数，返回要给前端的数据-->
-    <select id="selectFocusIndex" parameterType="app.home.model.TJdShopIndex"
-            resultMap="FewTJdShopIndexResultMap">
- SELECT product_brand, device_type,focus_index FROM t_jd_shopindex WHERE
-	first_catalog =#{first_catalog,jdbcType=VARCHAR}
-AND second_catalog =#{second_catalog,jdbcType=VARCHAR}
-AND third_catalog =#{third_catalog,jdbcType=VARCHAR}
-AND date_id='20161111'
+    <select id="selectFocusIndex" parameterType="app.home.model.AcceptJson"
+            resultType="app.home.model.BrandIndex">
+        SELECT
+	brand_index.brand_id,
+  brand_list.brand_name,
+	brand_index.focus_index,
+	brand_index.purchase_index,
+	brand_index.polularity_index,
+	brand_index.device_type,
+	brand_index.date
+FROM
+	brand_index,
+	third_catalog,
+	second_catalog,
+	first_catalog,
+brand_list
+WHERE
+	brand_index.brand_id = brand_list.id=third_catalog.id = #{first_catalog,jdbcType=INTEGER}
+AND third_catalog.second_catalog_id = second_catalog.id = #{second_catalog,jdbcType=INTEGER}
+AND second_catalog.first_catalog_id = first_catalog.id = #{third_catalog,jdbcType=INTEGER}
+AND brand_index.date=(SELECT MAX(brand_index.date) FROM brand_index)
     </select>
-    <select id="selectFocusIndexAddDateId" parameterType="app.home.model.TJdShopIndex"
+    <select id="selectFocusIndexAddDateId" parameterType="app.home.model.AcceptJsonSelect"
             resultType="app.home.model.LittleTjdShopIndex">
-         SELECT product_brand, device_type,focus_index,date_id FROM t_jd_shopindex WHERE
-	first_catalog ='个护化妆'
-AND second_catalog ='口腔护理'
-AND third_catalog ='漱口水'
-AND product_brand='三金'
-AND date_id BETWEEN '20161110' AND '20161210'
+         SELECT
+	brand_index.brand_id,
+   brand_list.brand_name,
+	brand_index.focus_index,
+	brand_index.purchase_index,
+	brand_index.polularity_index,
+	brand_index.device_type,
+	brand_index.date
+FROM
+	brand_index,
+	third_catalog,
+	second_catalog,
+	first_catalog,
+brand_list
+WHERE
+	brand_index.brand_id = brand_list.id=third_catalog.id = #{first_catalog,jdbcType=INTEGER}
+AND third_catalog.second_catalog_id = second_catalog.id = #{second_catalog,jdbcType=INTEGER}
+AND second_catalog.first_catalog_id = first_catalog.id = #{third_catalog,jdbcType=INTEGER}
+AND date BETWEEN #{date2,jdbcType=DATE} AND #{date1,jdbcType=DATE}
     </select>
 </mapper>
